@@ -1,23 +1,39 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-
-// создадим react-элемент:
-// 1ый аргумент - элемент, который хотим отобразить
-// 2ой аргумент - свойства этого h1 элемента (его данные/props)
-// 3ий аргумент - значение элемента
+import ReactDom from 'react-dom';
 
 // const el = React.createElement(
-//   'h1', 
-//   null, 
-//   'Hello World, React.js!',
+//     'h1', //элемент, который ъотим отобразить
+//     null, //свойства данного элемента
+//     'Hello World' //хначение элемента
 // );
 
-const el = <h1>Hello World, React.js!</h1> // JSX 
-//JSX компилируется babel'ем в скрипт, который приведен выше
+// const el = (
+//     <>
+//         <h1>Hello World</h1>
+//     </>
+// );
 
-//покажем этот элемент на странице с помощью библиотеки ReactDOM:
-// 1ый аргумент - это сам элемент, который хотим показать
-// 2ой аргумент - место, где хотим его отобразить
+//чтобы создать компонент, достаточно создать функцию, которая возвращает реакт-элемент:
+const AppList = () => {
+    return  (
+        <ul>
+            <li>My first list</li>
+            <li>My second list</li>
+        </ul>
+    );
+}
 
-ReactDOM.render(el, document.getElementById('root'));
+const AppHeader = () => <h1>Hello World!</h1>;
 
+const App = () => {
+    return (
+        <>
+            <AppHeader />
+            <AppList />
+            <AppHeader />
+            <AppList />
+        </>  
+    );
+}
+
+ReactDom.render(<App />, document.getElementById('root'));
