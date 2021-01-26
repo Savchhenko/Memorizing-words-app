@@ -16,7 +16,14 @@ const AppList = () => {
     );
 }
 
-const AppHeader = () => <h1>Hello World!</h1>;
+const AppHeader = () => {
+    const headerStyle = {
+        color: "red"
+    };
+    return (
+        <h1 style={headerStyle} className="header">Hello World!</h1>
+    );
+}
 
 const AppInput = () => {
     const placeholder = "Type text...";
