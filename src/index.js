@@ -1,34 +1,37 @@
 import React from 'react';
 import ReactDom from 'react-dom';
 
-// const el = React.createElement(
-//     'h1', //элемент, который ъотим отобразить
-//     null, //свойства данного элемента
-//     'Hello World' //хначение элемента
-// );
-
-// const el = (
-//     <>
-//         <h1>Hello World</h1>
-//     </>
-// );
-
-//чтобы создать компонент, достаточно создать функцию, которая возвращает реакт-элемент:
 const AppList = () => {
+
+    const items = ['Item1', 'Item2', 'Item3'];
+    const firstItem = <li>Item 0</li>
+
     return  (
         <ul>
-            <li>My first list</li>
-            <li>My second list</li>
+            {firstItem}
+            { items.map(item => <li>{item}</li>) }
+            <li>{items[0]}</li> 
+            <li>{items[1]}</li>
         </ul>
     );
 }
 
 const AppHeader = () => <h1>Hello World!</h1>;
 
+const AppInput = () => {
+    const placeholder = "Type text...";
+    return (
+        <label>
+            <input placeholder={placeholder} />
+        </label>
+    );
+}
+
 const App = () => {
     return (
         <>
             <AppHeader />
+            <AppInput />
             <AppList />
             <AppHeader />
             <AppList />
